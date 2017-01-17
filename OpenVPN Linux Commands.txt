@@ -1,0 +1,17 @@
+Linux/Ubuntu [Tested in Ubuntu Studio 16+]
+
+START OPENVPN:
+cd /home/USER/Desktop/OpenVPN/     [NOTES: replace "USER" with username]
+sudo openvpn --config AirVPN_America_UDP-443.ovpn   [NOTES: replace "AirVPN_America_UDP-443.ovpn" with actual config filename and extension (.ovpn)]
+   
+
+STOP OPENVPN:
+sudo killall openvpn
+
+
+FIX DNS LEAKS:
+Add these three lines to your .ovpn file. Add them to the end of file as new lines.
+
+script-security 2
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
